@@ -41,7 +41,7 @@ PROD_TRKR_POLYSEED_COMBINED_run3pp:
     log:                   '{condor}/{logbase}.condor'
     neventsper:             1000
     payload:                [../tracking_code/*]
-    request_memory:         5GB, 7GB, 12GB
+    request_memory:         3.2 GB, 6GB
     request_cpus:          '1'
     batch_name:            '{rule_name}_{outtriplet}'
     priority:              '30'
