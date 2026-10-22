@@ -1,5 +1,3 @@
-################################# Prod03 #######################################
-### Standard full production
 sphnxprod03:
   defaultlocations:
     prodbase:   /sphenix/u/sphnxpro/Production2026/sphenixprod
@@ -14,4 +12,3 @@ sphnxprod03:
     submit: on
     dstspider: on
 
-###############################################################################

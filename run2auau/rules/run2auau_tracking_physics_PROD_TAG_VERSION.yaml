@@ -23,6 +23,7 @@ PROD_STREAMING_EVENT_run2auau:
     request_xferslots:     '3'
     batch_name:            '{rule_name}_{outtriplet}'
     priority:              '90'
+    rungroup_size:         1
 
 #______________________________________________________________________________________________________________________
 PROD_TRKR_CLUSTER_run2auau:
@@ -47,6 +48,7 @@ PROD_TRKR_CLUSTER_run2auau:
     request_cpus:          '1'
     batch_name:            '{rule_name}_{outtriplet}'
     priority:              '60'
+    rungroup_size:         1
 
 #______________________________________________________________________________________________________________________
 PROD_TRKR_SEED_run2auau:
@@ -71,5 +73,6 @@ PROD_TRKR_SEED_run2auau:
     request_cpus:          '2'
     batch_name:            '{rule_name}_{outtriplet}'
     priority:              '30'
+    rungroup_size:         1
 
 ###############################################################################

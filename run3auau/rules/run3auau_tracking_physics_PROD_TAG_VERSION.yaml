@@ -1,33 +1,6 @@
-#______________________________________________________________________________________________________________________
-PROD_STREAMING_EVENT_run3auau:
+PROD_COMBINED_run3auau:
   params:
-    dsttype:     DST_STREAMING_EVENT
-    period:      run3auau
-    physicsmode: physics
-    dataset:     run3auau
-    build:       PROD
-    dbtag:       TAG
-    version:     VERSION
-
-  input:
-    min_run_time:   300
-    min_run_events: 100000
-    combine_seg0_only: false
-
-  job:
-    script:                 run_parallel_streams.sh
-    log:                   '{condor}/{logbase}.condor'
-    neventsper:             10000
-    payload:                [../streaming_code/*]
-    request_memory:         2.5GB, 3.9GB, 8GB, 25GB
-    request_xferslots:     '3'
-    batch_name:            '{rule_name}_{outtriplet}'
-    priority:              '90'
-
-#______________________________________________________________________________________________________________________
-PROD_TRKR_CLUSTER_run3auau:
-  params:
-    dsttype:     DST_TRKR_CLUSTER
+    dsttype:     DST_COMBINED
     period:      run3auau
     physicsmode: physics
     dataset:     run3auau
@@ -39,17 +12,18 @@ PROD_TRKR_CLUSTER_run3auau:
     intriplet:   PROD_TAG_VERSION
 
   job:
-    script:                 run_rolloverjob0.sh
+    script:                 run_combining.sh
     log:                   '{condor}/{logbase}.condor'
     neventsper:             1000
     payload:                [../tracking_code/*]
-    request_memory:         9GB, 14GB
+    request_memory:         3GB, 5GB
     request_cpus:          '1'
     batch_name:            '{rule_name}_{outtriplet}'
-    priority:              '60'
+    priority:              '80'
+    rungroup_size:         1
 
 #______________________________________________________________________________________________________________________
-PROD_TRKR_SEED_run3auau:
+PROD_TRKR_POLYSEED_COMBINED_run3auau:
   params:
     dsttype:     DST_TRKR_SEED
     period:      run3auau
@@ -61,15 +35,41 @@ PROD_TRKR_SEED_run3auau:
 
   input:
     intriplet:   PROD_TAG_VERSION
+    inputmode:   combined4polyseed
 
   job:
-    script:                 run_jobA.sh
+    script:                 run_polyseed_combined.sh
     log:                   '{condor}/{logbase}.condor'
     neventsper:             1000
     payload:                [../tracking_code/*]
-    request_memory:         3.9GB, 7GB
+    request_memory:         5 GB, 7GB
     request_cpus:          '1'
     batch_name:            '{rule_name}_{outtriplet}'
     priority:              '30'
+    rungroup_size:         1
 
-###############################################################################
+
+#______________________________________________________________________________________________________________________
+PROD_TRKR_TRACKS_run3auau:
+  params:
+    dsttype:     DST_TRKR_TRACKS
+    period:      run3auau
+    physicsmode: physics
+    dataset:     run3auau
+    build:       PROD
+    dbtag:       TAG
+    version:     VERSION
+
+  input:
+    intriplet:   PROD_TAG_VERSION
+
+  job:
+    script:                 run_jobC.sh
+    log:                   '{condor}/{logbase}.condor'
+    neventsper:             1000
+    payload:                [../tracking_code/*]
+    request_memory:         2.3GB, 3GB
+    request_cpus:          '1'
+    batch_name:            '{rule_name}_{outtriplet}'
+    priority:              '30'
+    rungroup_size:         1

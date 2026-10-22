@@ -22,6 +22,7 @@ PROD_TRIGGERED_EVENT_run3pp:
     request_xferslots:     '3'
     batch_name:            '{rule_name}_{outtriplet}'
     priority:              '90'
+    rungroup_size:         1
     filesystem:
       logdir:   "/sphenix/data/data03/sphnxpro/{prodmode}/{period}/{physicsmode}/{outtriplet}/{leafdir}/{rungroup}/log"
       histdir:  "/sphenix/data/data03/sphnxpro/{prodmode}/{period}/{physicsmode}/{outtriplet}/{leafdir}/{rungroup}/hist"
@@ -51,6 +52,7 @@ PROD_CALOFITTING_run3pp:
     request_cpus:          '1'
     batch_name:            '{rule_name}_{outtriplet}'
     priority:              '60'
+    rungroup_size:         1
     filesystem:
       logdir:   "/sphenix/data/data03/sphnxpro/{prodmode}/{period}/{physicsmode}/{outtriplet}/{leafdir}/{rungroup}/log"
       histdir:  "/sphenix/data/data03/sphnxpro/{prodmode}/{period}/{physicsmode}/{outtriplet}/{leafdir}/{rungroup}/hist"
@@ -81,6 +83,7 @@ PROD_JETSKIMMER_run3pp:
     request_cpus:          '1'
     batch_name:            '{rule_name}_{outtriplet}'
     priority:              '60'
+    rungroup_size:         1
     filesystem:
       logdir:   "/sphenix/data/data03/sphnxpro/{prodmode}/{period}/{physicsmode}/{outtriplet}/{leafdir}/{rungroup}/log"
       histdir:  "/sphenix/data/data03/sphnxpro/{prodmode}/{period}/{physicsmode}/{outtriplet}/{leafdir}/{rungroup}/hist"
