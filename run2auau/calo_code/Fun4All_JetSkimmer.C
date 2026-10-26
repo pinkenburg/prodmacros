@@ -59,7 +59,7 @@ R__LOAD_LIBRARY(libzdcinfo.so)
 void Fun4All_JetSkimmer(int nEvents = 1000,
                         const std::string &fname_calo = "DST_CALOFITTING_run3oo_pro001_pcdb001_v001-00082703-00000.root",
                         const std::string &fname_zdc = "DST_ZDC_RAW_run3oo_pro001_pcdb001_v001-00082703-00000.root",
-                        const std::string &fname_sepd = "DST_SEPD_RAW_run3oo_pro001_pcdb001_v001-00082703-00000.root",
+                        const std::string &/*fname_sepd*/ = "DST_SEPD_RAW_run3oo_pro001_pcdb001_v001-00082703-00000.root",
                         const std::string &outfile_low = "DST_JETCALO_run3oo_pro001_pcdb001_v001-00082703-00000.root",
                         const std::string &outfile_high = "DST_Jet_run3oo_pro001_pcdb001_v001-00082703-00000.root",
                         const std::string &outfile_hist = "HIST_JETQA_run3oo_pro001_pcdb001_v001-00082703-00000.root",
