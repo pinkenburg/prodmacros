@@ -102,7 +102,6 @@ void Fun4All_JetSkimmer(int nEvents = 1000,
     caZDC->set_funcfit_type(2);
   }
   caZDC->set_nsamples(16);
-  caZDC->set_offlineflag();
   se->registerSubsystem(caZDC);
 
   // ZDC Reconstruction--Calib Info
